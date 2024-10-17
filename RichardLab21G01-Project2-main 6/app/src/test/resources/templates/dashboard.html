@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+  <section id="profile">
+    <h2>Welcome!</h2>
+    <p>Username: <span id="username"></span></p>
+    <p>Role: <span id="role"></span></p>
+
+    <!-- Main Navigation Buttons -->
+    <div id="button-section">
+      <button onclick="window.location.href='MyScrolls.html'">My Scrolls</button>
+      <button onclick="window.location.href='AddScroll.html'">Add Scroll</button>
+      <button onclick="window.location.href='Admin_panel.html'">Admin</button>
+      <button id="editProfile" onclick="window.location.href='EditProfile.html'">Profile</button>
+    </div>
+
+    <!-- Scroll Navigator Section -->
+    <div id="scroll-navigator">
+      <button onclick="window.location.href='AvailableScroll.html'" class="scroll-nav-button">Scroll Navigator</button>
+    </div>
+
+    <!-- Logout and Help Section -->
+    <div id="bottom-section">
+      <button onclick="logout()">Logout</button>
+      <button onclick="help()">Help</button>
+    </div>
+
+  </section>
+
+  <script>
+    // Sample JavaScript to handle profile display
+    // document.getElementById('username').innerText = "User123"; // Replace with actual username data
+    // document.getElementById('role').innerText = "Admin"; // Replace with actual role data
+
+    // Logout functionality (placeholder)
+    function logout() {
+      window.location.href = 'index.html'
+      // Add logout logic here
+    }
+
+    // // Help functionality (placeholder)
+    // function help() {
+    //   alert("Help info...");
+    //   // Add help logic here
+    // }
+  </script>
+
+</body>
+</html>
