@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Scrolls</title>
+  <link rel="stylesheet" href="/css/myscrolls.css">
+</head>
+<body>
+
+  <h2>My Scrolls</h2>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Scroll Name</th>
+      <th>ID</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody id="scrollList">
+    <!-- Scrolls will be dynamically added here using JavaScript -->
+    </tbody>
+  </table>
+
+  <button class="home-button" onclick="goHome()">Home</button>
+
+  <!-- JavaScript to handle actions -->
+  <script>
+    // Sample data (replace with real data later)
+    const scrolls = [
+      { id: 123, name: 'Scroll 1' },
+      { id: 456, name: 'Scroll 2' }
+    ];
+
+    document.addEventListener('DOMContentLoaded', function() {
+    loadScrolls();
+});
+
+function loadScrolls() {
+    fetch('/scrolls')
+        .then(response => response.json())
+        .then(scrolls => {
+            const scrollList = document.getElementById('scrollList');
+            scrollList.innerHTML = ''; // Clear existing rows
+
+            scrolls.forEach(scroll => {
+                const row = document.createElement('tr');
+
+                // Scroll name
+                const nameCell = document.createElement('td');
+                nameCell.textContent = scroll.name;
+                row.appendChild(nameCell);
+
+                // Scroll ID
+                const idCell = document.createElement('td');
+                idCell.textContent = scroll.scrollId;
+                row.appendChild(idCell);
+
+                // Actions (Edit/Delete buttons)
+                const actionCell = document.createElement('td');
+                actionCell.innerHTML = `
+                    <button class="edit-button" onclick="editScroll('${scroll.scrollId}')">Edit</button>
+                    <button class="delete-button" onclick="deleteScroll('${scroll.scrollId}')">Delete</button>
+                `;
+                row.appendChild(actionCell);
+
+                // Add row to table
+                scrollList.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Error loading scrolls:', error));
+}
+
+function editScroll(scrollId) {
+    window.location.href = `/user/scroll/edit?id=${scrollId}`;
+}
+
+function deleteScroll(scrollId) {
+    window.location.href = `/user/scroll/delete?id=${scrollId}`;
+}
+
+function goHome() {
+    window.location.href = "/user/";
+}
+
+  </script>
+
+</body>
+</html>
