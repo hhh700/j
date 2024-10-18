@@ -1,0 +1,7 @@
+version: "2"
+authtoken: <your authtoken>
+tunnels:
+    web:
+        domain: <your domain>
+        proto: http
+        addr: 8080

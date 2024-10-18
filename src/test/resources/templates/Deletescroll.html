@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete Scroll</title>
+  <link rel="stylesheet" href="../css/deleteScroll.css">
+</head>
+<body>
+
+  <h2>Are you sure you want to delete this scroll?</h2>
+
+  <p>Scroll ID: <span id="scrollId"></span></p>
+
+  <button onclick="confirmDelete()">Delete</button>
+  <button onclick="goBack()">Cancel</button>
+
+  <script>
+    // Load the scroll ID into the confirmation message
+    function loadScroll() {
+      // Get scroll ID from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const scrollId = urlParams.get('id');
+
+      document.getElementById('scrollId').textContent = scrollId;
+    }
+
+    // Confirm delete action
+    function confirmDelete() {
+      // Perform delete operation (this would normally be a backend call)
+      alert('Scroll deleted successfully!');
+      window.location.href = "MyScrolls.html";  // Redirect back to My Scrolls page
+    }
+
+    // Go back function
+    function goBack() {
+      window.history.back();
+    }
+
+    // Load the scroll data when the page is ready
+    window.onload = loadScroll;
+  </script>
+
+</body>
+</html>

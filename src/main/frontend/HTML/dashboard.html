@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+
+  <section id="profile">
+    <h2>Welcome!</h2>
+    <p>Username: <span id="username" th:text="${username}">username</span></p>
+    <p>Role: <span id="role" th:text="${role}">role</span></p>
+
+    <!-- Main Navigation Buttons -->
+    <div id="button-section">
+      <button onclick="window.location.href='/user/scrolls'">My Scrolls</button>
+      <button onclick="window.location.href='/user/scrolls/add'">Add Scroll</button>
+      <button onclick="window.location.href='/admin'">Admin</button>
+      <button id="editProfile" onclick="window.location.href='/user/profile/edit'">Profile</button>
+    </div>
+
+    <!-- Scroll Navigator Section -->
+    <div id="scroll-navigator">
+      <button onclick="window.location.href='/'" class="scroll-nav-button">Scroll Navigator</button>
+    </div>
+
+    <!-- Logout and Help Section -->
+    <div id="bottom-section">
+      <form action="/api/logout" method="POST">
+        <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
+        <!-- <button onclick="logout()">Logout</button> -->
+        <button type="submit">Logout</button>
+      </form>
+    
+      <button onclick="help()">Help</button>
+    </div>
+
+  </section>
+
+  <script>
+    // Sample JavaScript to handle profile display
+    // document.getElementById('username').innerText = "User123"; // Replace with actual username data
+    // document.getElementById('role').innerText = "Admin"; // Replace with actual role data
+
+    // Logout functionality (placeholder)
+    function logout() {
+      window.location.href = 'api/logout';
+      // Add logout logic here
+    }
+
+    // // Help functionality (placeholder)
+    // function help() {
+    //   alert("Help info...");
+    //   // Add help logic here
+    // }
+  </script>
+
+</body>
+</html>
